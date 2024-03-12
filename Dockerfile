@@ -6,6 +6,8 @@ RUN apt-get install -y vim curl htop wget
 RUN apt-get install -y openjdk-17-jdk 
 RUN apt-get install -y python3-pip
 RUN wget https://github.com/nutanix/nai-llm/archive/refs/tags/v0.3.tar.gz
-RUN export WORK_DIR=/nai_llm_0.3
+ENV WORK_DIR=/nai_llm_0.3
 RUN mkdir $WORK_DIR
 RUN tar -xvf /v0.3.tar.gz -C $WORK_DIR --strip-components=1
+WORKDIR /nai_llm_0.3/llm
+RUN pip install -r $WORK_DIR/llm/requirements.txt
