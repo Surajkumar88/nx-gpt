@@ -13,3 +13,6 @@ WORKDIR /nai_llm_0.3/llm
 RUN pip install -r $WORK_DIR/llm/requirements.txt
 RUN mkdir model_path mar_output
 RUN pip install torch-model-archiver
+RUN python3 $WORK_DIR/llm/generate.py --model_name llama2_7b --model_path /nai_llm_0.3/llm/model_path \
+    --mar_output /nai_llm_0.3/llm/mar_output --hf_token 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
+RUN bash $WORK_DIR/llm/run.sh -n llama2_7b -a /nai_llm_0.3/llm/mar_output
