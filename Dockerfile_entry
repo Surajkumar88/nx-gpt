@@ -21,5 +21,4 @@ RUN touch register_script.sh
 RUN echo "bash $WORK_DIR/llm/run.sh -n llama2_7b -a /nai_llm_0.3/llm/mar_output" >> register_script.sh
 RUN echo "bash" >> register_script.sh
 RUN chmod 777 $WORK_DIR/llm/register_script.sh
-ENTRYPOINT bash
-CMD $WORK_DIR/llm/register_script.sh
+ENTRYPOINT $WORK_DIR/llm/register_script.sh
